@@ -11,6 +11,10 @@ namespace Prac4Ej1
 
         static void Main(string[] args)
         {
+            ListaNodos listaNodos = new ListaNodos();
+
+            listaNodos.Add(new Nodo(12));
+            Console.WriteLine(listaNodos.ToString());
         }
     }
 }

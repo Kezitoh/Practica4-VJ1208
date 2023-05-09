@@ -25,7 +25,17 @@ namespace Prac4Ej1
 
         public void Add(Object valor)
         {
-
+            Nodo nuevo = new Nodo(valor);
+            if(Count == 0)
+            {
+                primero = nuevo;
+            }
+            else
+            {
+                ultimo.Sig = nuevo;
+                ultimo = nuevo;
+            }
+            Count++;
         }
 
         public bool Contains(Object valor)
@@ -33,9 +43,27 @@ namespace Prac4Ej1
             return false;
         }
 
-        public void Remove(Object valor)
+        public bool Remove(Object valor)
         {
+            Nodo iterador = primero;
+            Nodo anterior = primero;
+            while(iterador != null)
+            {
+                if(iterador.Dato.Equals(valor))
+                {
+                    if (primero == iterador) primero = iterador.Sig;
+                    else if (ultimo == iterador) ultimo = anterior;
+                    else anterior.Sig = iterador.Sig;
+                    Count--;
+                    return true;
+                }else
+                {
+                    anterior = iterador;
+                    iterador = iterador.Sig;
 
+                }
+            }
+            return false;
         }
 
         public Object ElementAt(int indice)
@@ -45,7 +73,16 @@ namespace Prac4Ej1
 
         public override string ToString()
         {
-            return "Nada";
+            string res = "(";
+            Nodo iterador = primero;
+            for(int i = 0; i < Count; i++)
+            {
+                if (iterador == primero) res += iterador.Dato;
+                else res += $", {iterador.Dato}";
+                iterador = iterador.Sig;
+            }
+            res += ")";
+            return res;
         }
     }
 }
