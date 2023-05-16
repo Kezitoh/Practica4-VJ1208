@@ -23,12 +23,14 @@ namespace Prac4Ej1
             return (Count == 0);
         }
 
-        public void Add(Object valor)
+        public void Add(object valor)
         {
             Nodo nuevo = new Nodo(valor);
+            Console.WriteLine(nuevo.Dato + "aaaa");
             if(Count == 0)
             {
                 primero = nuevo;
+                ultimo = nuevo;
             }
             else
             {
@@ -38,12 +40,31 @@ namespace Prac4Ej1
             Count++;
         }
 
-        public bool Contains(Object valor)
+        public bool Contains(object valor)
         {
-            return false;
+            bool res = false;
+            Nodo iterador = primero;
+            Nodo nodo = new Nodo(valor);
+            Console.WriteLine(nodo.Dato + "eeeeee");
+            int i = 0;
+            do
+            {
+                if (nodo.Dato == iterador.Dato)
+                {
+                    Console.WriteLine("Entrooooo");
+                    res = true;
+                }
+                else
+                {
+                    i++;
+                    iterador = iterador.Sig;
+                }
+
+            }while (i < Count && !res);
+            return res;
         }
 
-        public bool Remove(Object valor)
+        public bool Remove(object valor)
         {
             Nodo iterador = primero;
             Nodo anterior = primero;
@@ -71,18 +92,18 @@ namespace Prac4Ej1
             return null;
         }
 
-        public override string ToString()
-        {
-            string res = "(";
-            Nodo iterador = primero;
-            for(int i = 0; i < Count; i++)
-            {
-                if (iterador == primero) res += iterador.Dato;
-                else res += $", {iterador.Dato}";
-                iterador = iterador.Sig;
-            }
-            res += ")";
-            return res;
-        }
+        //public override string ToString()
+        //{
+        //    string res = "(";
+        //    Nodo iterador = primero;
+        //    for(int i = 0; i < Count; i++)
+        //    {
+        //        if (iterador == primero) res += iterador.Dato;
+        //        else res += $", {iterador.Dato}";
+        //        iterador = iterador.Sig;
+        //    }
+        //    res += ")";
+        //    return res;
+        //}
     }
 }

@@ -13,8 +13,13 @@ namespace Prac4Ej1
         {
             ListaNodos listaNodos = new ListaNodos();
 
-            listaNodos.Add(new Nodo(12));
-            Console.WriteLine(listaNodos.ToString());
+            listaNodos.Add(12);
+            listaNodos.Add(14);
+            listaNodos.Add(15);
+            Console.WriteLine(listaNodos);
+            Console.WriteLine(listaNodos.Contains(14));
+            listaNodos.Remove(14);
+            Console.WriteLine(listaNodos);
         }
     }
 }

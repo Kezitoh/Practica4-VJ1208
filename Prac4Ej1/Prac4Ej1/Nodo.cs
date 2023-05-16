@@ -8,12 +8,17 @@ namespace Prac4Ej1
 {
     internal class Nodo
     {
-        public Object Dato { get; set; }
+        public object Dato { get; set; }
         public Nodo Sig { get; set; }
         public Nodo(object dato)
         {
             Dato = dato;
             Sig = null;
         }
+
+        //public override string ToString()
+        //{
+        //    return Dato.ToString();
+        //}
     }
 }
