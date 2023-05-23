@@ -88,22 +88,7 @@ namespace Prac4Ej1
             return false;
         }
 
-        public void Remove(Object valor)
-        {
-            Nodo iterador = primero.Sig;
-            Nodo anterior = primero;
-            while(iterador != null)
-            {
-                if (iterador.Dato.Equals(valor))
-                {
-                    anterior.Sig = iterador.Sig;
-                    Count--;
-                    return;
-                }
-                anterior = iterador;
-                iterador = iterador.Sig;
-            }
-        }
+
 
         public Object ElementAt(int indice)
         {
